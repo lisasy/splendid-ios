@@ -2,26 +2,39 @@ import SwiftUI
 
 struct TransactionsView: View {
     @EnvironmentObject var budgetViewModel: BudgetViewModel
+    @State private var isAddTransactionViewPresented = false
 
-
-    private var todaysTotal: Double {
+    private var todaysTotal: String {
         let today = Calendar.current.startOfDay(for: Date())
-        return budgetViewModel.transactions
+        let total = budgetViewModel.transactions
             .filter { Calendar.current.isDate($0.date, inSameDayAs: today) }
             .map { $0.amount }
             .reduce(0, +)
+        return total == 0 ? String(format: "$%.0f", total) : String(format: "$%.2f", total)
     }
 
     var body: some View {
         VStack {
-            Text("Today's total: \(todaysTotal, specifier: "%.2f")")
-                .font(.headline)
-                .padding()
+            Text("It's \(Date(), style: .date)")
+                .font(.title)
+                .fontWeight(.medium)
+                .foregroundColor(.white)
+                .padding(.top, 64.0)
+
             
-            
-            Text("Today: \(Date(), style: .date)")
-                .font(.subheadline)
+            Text("Spent today")
+                .font(.title3)
+                .fontWeight(.medium)
+                .foregroundColor(Color("Gray2"))
+    
+        
+            Text("\(todaysTotal)")
                 .padding()
+                .font(.system(size: 80))
+            
+            PrimaryButton(action: {
+                isAddTransactionViewPresented.toggle()
+            }, label: "Add Spending", iconName: "plus")
 
 
             List(budgetViewModel.transactions) { transaction in
@@ -31,8 +44,15 @@ struct TransactionsView: View {
                     Text(transaction.date, style: .date)
                 }
             }
-            .navigationTitle("Transactions")
+            .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all))
+            .sheet(isPresented: $isAddTransactionViewPresented) {
+                AddTransactionView()
+                    .environmentObject(budgetViewModel)
+            }
         }
+        .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all))
+        .foregroundColor(Color("AccentColor"))
+        
     }
 }
 

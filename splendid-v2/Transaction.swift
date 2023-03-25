@@ -16,7 +16,7 @@ struct Transaction: Identifiable, Codable {
 
 enum Category: String, CaseIterable, Codable {
     case groceries = "Groceries"
-    case eatingOut = "Eating Out"
-    case coffeeShop = "Coffee Shop"
+    case eatingOut = "Dine Out"
+    case coffeeShop = "Coffee & Tea"
     case pet = "Pet"
 }

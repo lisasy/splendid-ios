@@ -8,13 +8,6 @@ struct ContentView: View {
         NavigationView {
             TransactionsView()
                 .environmentObject(budgetViewModel)
-                .toolbar {
-                    ToolbarItem(placement: .primaryAction) {
-                        Button(action: { isShowingAddTransactionView.toggle() }) {
-                            Image(systemName: "plus")
-                        }
-                    }
-                }
         }
         .sheet(isPresented: $isShowingAddTransactionView) {
             AddTransactionView()
