@@ -6,6 +6,7 @@ struct AddTransactionView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedCategory: Category = .groceries
     @State private var amount: String = ""
+    @State private var formattedAmount: String = "$0.00"
     @State private var isCategoryPickerPresented: Bool = false
     
     init() {
@@ -13,6 +14,15 @@ struct AddTransactionView: View {
         UITableViewCell.appearance().backgroundColor = UIColor.clear
         UITableView.appearance().backgroundColor = UIColor.clear
     }
+    
+    let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "$"
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
     
     var body: some View {
         NavigationView {
@@ -29,6 +39,13 @@ struct AddTransactionView: View {
                                 .background(Color.clear)
                                 .foregroundColor(Color("AccentColor"))
                                 .cornerRadius(8)
+                                .onChange(of: amount) { newValue in
+                                    if let amountValue = Double(newValue) {
+                                        formattedAmount = formatter.string(from: NSNumber(value: amountValue)) ?? "$0.00"
+                                    } else {
+                                        formattedAmount = "$0.00"
+                                    }
+                                }
                         }
                         .padding(.horizontal)
                         

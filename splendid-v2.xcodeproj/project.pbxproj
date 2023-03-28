@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		53590F7329CE285D00E7E61E /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53590F7229CE285D00E7E61E /* PrimaryButton.swift */; };
 		53590F7929CEA31100E7E61E /* CategoryListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53590F7829CEA31100E7E61E /* CategoryListItemView.swift */; };
+		53590F7B29CEBB9E00E7E61E /* CategoryBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53590F7A29CEBB9E00E7E61E /* CategoryBudget.swift */; };
+		53590F7D29CEBCB700E7E61E /* CategoryProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53590F7C29CEBCB700E7E61E /* CategoryProgressBarView.swift */; };
+		53590F7F29CEBCDF00E7E61E /* CategoryBudgetProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53590F7E29CEBCDF00E7E61E /* CategoryBudgetProgressView.swift */; };
+		53590F8129CEBD3F00E7E61E /* MonthProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53590F8029CEBD3F00E7E61E /* MonthProgressView.swift */; };
+		53590F8329CEBD6200E7E61E /* BudgetProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53590F8229CEBD6200E7E61E /* BudgetProgressView.swift */; };
+		53590F8529CEBE6800E7E61E /* BudgetProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53590F8429CEBE6800E7E61E /* BudgetProgress.swift */; };
 		53B30AA529C9607000DDD496 /* splendid_v2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B30AA429C9607000DDD496 /* splendid_v2App.swift */; };
 		53B30AA729C9607000DDD496 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B30AA629C9607000DDD496 /* ContentView.swift */; };
 		53B30AA929C9607100DDD496 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53B30AA829C9607100DDD496 /* Assets.xcassets */; };
@@ -22,6 +28,12 @@
 /* Begin PBXFileReference section */
 		53590F7229CE285D00E7E61E /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		53590F7829CEA31100E7E61E /* CategoryListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListItemView.swift; sourceTree = "<group>"; };
+		53590F7A29CEBB9E00E7E61E /* CategoryBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBudget.swift; sourceTree = "<group>"; };
+		53590F7C29CEBCB700E7E61E /* CategoryProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProgressBarView.swift; sourceTree = "<group>"; };
+		53590F7E29CEBCDF00E7E61E /* CategoryBudgetProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBudgetProgressView.swift; sourceTree = "<group>"; };
+		53590F8029CEBD3F00E7E61E /* MonthProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProgressView.swift; sourceTree = "<group>"; };
+		53590F8229CEBD6200E7E61E /* BudgetProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetProgressView.swift; sourceTree = "<group>"; };
+		53590F8429CEBE6800E7E61E /* BudgetProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetProgress.swift; sourceTree = "<group>"; };
 		53B30AA129C9607000DDD496 /* splendid-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "splendid-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B30AA429C9607000DDD496 /* splendid_v2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = splendid_v2App.swift; sourceTree = "<group>"; };
 		53B30AA629C9607000DDD496 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +56,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53590F8629D3884B00E7E61E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53B30AA629C9607000DDD496 /* ContentView.swift */,
+				53B30AB829C9633D00DDD496 /* TransactionsView.swift */,
+				53B30AB629C962BA00DDD496 /* AddTransactionView.swift */,
+				53590F8029CEBD3F00E7E61E /* MonthProgressView.swift */,
+				53590F8229CEBD6200E7E61E /* BudgetProgressView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		53590F8729D3887B00E7E61E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53B30AB229C9608900DDD496 /* Transaction.swift */,
+				53590F7A29CEBB9E00E7E61E /* CategoryBudget.swift */,
+				53B30AB429C9614B00DDD496 /* BudgetViewModel.swift */,
+				53590F8429CEBE6800E7E61E /* BudgetProgress.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		53590F8829D388C400E7E61E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				53590F7229CE285D00E7E61E /* PrimaryButton.swift */,
+				53590F7C29CEBCB700E7E61E /* CategoryProgressBarView.swift */,
+				53590F7E29CEBCDF00E7E61E /* CategoryBudgetProgressView.swift */,
+				53590F7829CEA31100E7E61E /* CategoryListItemView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		53B30A9829C9607000DDD496 = {
 			isa = PBXGroup;
 			children = (
@@ -63,16 +109,12 @@
 		53B30AA329C9607000DDD496 /* splendid-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				53590F8829D388C400E7E61E /* Helpers */,
+				53590F8729D3887B00E7E61E /* Models */,
+				53590F8629D3884B00E7E61E /* Views */,
 				53B30AA429C9607000DDD496 /* splendid_v2App.swift */,
-				53B30AA629C9607000DDD496 /* ContentView.swift */,
 				53B30AA829C9607100DDD496 /* Assets.xcassets */,
 				53B30AAA29C9607100DDD496 /* Preview Content */,
-				53B30AB229C9608900DDD496 /* Transaction.swift */,
-				53B30AB629C962BA00DDD496 /* AddTransactionView.swift */,
-				53B30AB829C9633D00DDD496 /* TransactionsView.swift */,
-				53590F7829CEA31100E7E61E /* CategoryListItemView.swift */,
-				53590F7229CE285D00E7E61E /* PrimaryButton.swift */,
-				53B30AB429C9614B00DDD496 /* BudgetViewModel.swift */,
 			);
 			path = "splendid-v2";
 			sourceTree = "<group>";
@@ -155,14 +197,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53590F8129CEBD3F00E7E61E /* MonthProgressView.swift in Sources */,
+				53590F8529CEBE6800E7E61E /* BudgetProgress.swift in Sources */,
 				53B30AA729C9607000DDD496 /* ContentView.swift in Sources */,
 				53590F7929CEA31100E7E61E /* CategoryListItemView.swift in Sources */,
 				53B30AA529C9607000DDD496 /* splendid_v2App.swift in Sources */,
 				53B30AB329C9608900DDD496 /* Transaction.swift in Sources */,
 				53B30AB529C9614B00DDD496 /* BudgetViewModel.swift in Sources */,
+				53590F7B29CEBB9E00E7E61E /* CategoryBudget.swift in Sources */,
 				53590F7329CE285D00E7E61E /* PrimaryButton.swift in Sources */,
 				53B30AB729C962BA00DDD496 /* AddTransactionView.swift in Sources */,
 				53B30AB929C9633D00DDD496 /* TransactionsView.swift in Sources */,
+				53590F7D29CEBCB700E7E61E /* CategoryProgressBarView.swift in Sources */,
+				53590F7F29CEBCDF00E7E61E /* CategoryBudgetProgressView.swift in Sources */,
+				53590F8329CEBD6200E7E61E /* BudgetProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

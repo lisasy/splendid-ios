@@ -3,6 +3,12 @@ import SwiftUI
 struct TransactionsView: View {
     @EnvironmentObject var budgetViewModel: BudgetViewModel
     @State private var isAddTransactionViewPresented = false
+    
+    let budgetProgressData: [BudgetProgress] = [
+          BudgetProgress(category: .groceries, spent: 150, budget: 200),
+          BudgetProgress(category: .coffeeShop, spent: 50, budget: 100),
+          // Add more categories here
+      ]
 
     private var todaysTotal: String {
         let today = Calendar.current.startOfDay(for: Date())
@@ -35,20 +41,31 @@ struct TransactionsView: View {
             PrimaryButton(action: {
                 isAddTransactionViewPresented.toggle()
             }, label: "Add Spending", iconName: "plus")
-
-
-            List(budgetViewModel.transactions) { transaction in
-                VStack(alignment: .leading) {
-                    Text(transaction.category.rawValue)
-                    Text("\(transaction.amount, specifier: "%.2f")")
-                    Text(transaction.date, style: .date)
-                }
-            }
-            .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all))
             .sheet(isPresented: $isAddTransactionViewPresented) {
                 AddTransactionView()
                     .environmentObject(budgetViewModel)
             }
+            
+            List {
+                ForEach(budgetProgressData) { progress in
+                    BudgetProgressView(budgetProgress: progress)
+                        .listRowInsets(EdgeInsets())
+                }
+            }
+            .listStyle(PlainListStyle())
+            .padding(.horizontal)
+            
+
+            // List of cumulative transactions.. Later refactor just for that date
+//            List(budgetViewModel.transactions) { transaction in
+//                VStack(alignment: .leading) {
+//                    Text(transaction.category.rawValue)
+//                    Text("\(transaction.amount, specifier: "%.2f")")
+//                    Text(transaction.date, style: .date)
+//                }
+//            }
+//            .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all))
+
         }
         .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all))
         .foregroundColor(Color("AccentColor"))

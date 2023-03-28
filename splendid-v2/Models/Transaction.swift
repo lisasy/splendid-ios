@@ -20,3 +20,4 @@ enum Category: String, CaseIterable, Codable {
     case coffeeShop = "Coffee & Tea"
     case pet = "Pet"
 }
+
