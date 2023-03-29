@@ -5,15 +5,12 @@ struct BudgetProgressView: View {
     
     var body: some View {
         VStack {
-            
-            MonthProgressView(daysInMonth: 31, daysPassed: 24, fillColor: Color("Gray1"), remainingColor: Color("AccentColor"))
-            
             VStack(alignment: .leading) {
                 Text(budgetProgress.category.rawValue)
                     .font(.headline)
-                    .foregroundColor(Color("Gray2"))
+                    .foregroundColor(Color("AccentColor"))
                 
-                CategoryProgressBarView(progress: budgetProgress.progressFraction, color: Color("Gray1"))
+                CategoryProgressBarView(progress: budgetProgress.progressFraction, color: Color("Gray3"))
                     .frame(height: 8)
             }
             .padding()

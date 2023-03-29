@@ -39,7 +39,7 @@ struct PrimaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .background(configuration.isPressed ? Color("Gray1").opacity(0.7) : Color("Gray1"))
-            .foregroundColor(Color("Gray2"))
+            .foregroundColor(Color("Gray3"))
             .cornerRadius(12)
             .font(.system(size: configuration.isPressed ? 14 : 16))
     }

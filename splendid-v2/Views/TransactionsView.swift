@@ -31,7 +31,7 @@ struct TransactionsView: View {
             Text("Spent today")
                 .font(.title3)
                 .fontWeight(.medium)
-                .foregroundColor(Color("Gray2"))
+                .foregroundColor(Color("Gray3"))
     
         
             Text("\(todaysTotal)")
@@ -44,17 +44,26 @@ struct TransactionsView: View {
             .sheet(isPresented: $isAddTransactionViewPresented) {
                 AddTransactionView()
                     .environmentObject(budgetViewModel)
-            }
+            }.padding(.bottom, 12)
             
-            List {
-                ForEach(budgetProgressData) { progress in
-                    BudgetProgressView(budgetProgress: progress)
-                        .listRowInsets(EdgeInsets())
+            VStack {
+                MonthCalendarProgressView(date: Date())
+                    
+                
+                VStack {
+                    ForEach(budgetProgressData) { progress in
+                        BudgetProgressView(budgetProgress: progress)
+                            .listRowInsets(EdgeInsets())
+                    }
+                    Spacer()
                 }
+                .listStyle(PlainListStyle())
+                .padding(.horizontal)
             }
-            .listStyle(PlainListStyle())
-            .padding(.horizontal)
+            .background(Color("Gray1"))
+            .cornerRadius(32)
             
+
 
             // List of cumulative transactions.. Later refactor just for that date
 //            List(budgetViewModel.transactions) { transaction in
