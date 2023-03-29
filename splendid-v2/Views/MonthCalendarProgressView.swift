@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct MonthCalendarProgressViewz: View {
+struct MonthCalendarProgressView: View {
     let date: Date
     
     var currentMonth: String {
@@ -88,15 +88,5 @@ struct MonthCalendarProgressViewz: View {
         }
         .padding(.vertical, 32)
         .padding(.horizontal, 24)
-        
-        
-
-        
-        
-
-    }
-    
-    func daysRemainingInMonth() -> Int {
-        daysInMonth - daysPassed
     }
 }
